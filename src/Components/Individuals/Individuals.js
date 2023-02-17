@@ -5,7 +5,7 @@ import { Sparklines, SparklinesLine } from "react-sparklines";
 const Individuals = () => {
   const [weekSales, setWeekSales] = useState("10k");
   const [yearSales, setYearSales] = useState("100k");
-  const [percentage, setPercentage] = useState(75);
+  const [percentage, setPercentage] = useState(20);
   return (
     <div>
       <div style={{ height: "10vh" }}>
