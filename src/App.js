@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import TeamsSales from "./Components/Teams/TeamsSales";
+import LeaderBoardThisYear from "./Components/Teams/LeaderBoardThisYear";
+import WeeklySales from "./Components/Teams/WeeklySales";
+import Individuals from "./Components/Individuals/Individuals";
+import Bottom from "./Components/Bottom/Bottom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-grid-container">
+      <div className="grid-container">
+        <div className="teams-grid">
+          <TeamsSales />
+          <LeaderBoardThisYear />
+          <WeeklySales />
+        </div>
+        <div className="individual-grid">
+          <Individuals />
+          <Individuals />
+          <Individuals />
+          <Individuals />
+        </div>
+      </div>
+      <div className="bottom-grid-container">
+        <Bottom />
+      </div>
     </div>
   );
 }

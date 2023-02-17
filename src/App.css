@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+#root {
+  background: #16113a;
+  height: 100%;
+}
+body {
+  overflow: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.main-grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  background: #16113a;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  max-height: 100vh;
+  color: #bebecb;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 1vw;
+  height: 90vh;
+  max-width: 100vw;
+  padding-top: 2vh;
+}
+.bottom-grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  height: 10vh;
+}
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1vh;
+  max-width: 30vw;
+  min-width: 30vw;
+  max-height: 88vh;
+  min-height: 88vh;
+  
+}
+.individual-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 1vw;
+  max-width: 60vw;
+  min-width: 60vw;
+  max-height: 88vh;
+  min-height: 88vh;
+}
+.teams-grid > * {
+  background: #272953;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.individual-grid > * {
+  background: #272953;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.crop-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 100%; /* 16:9 aspect ratio */
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.crop-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
