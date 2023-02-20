@@ -3,9 +3,9 @@ import "../../App.css";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
 const Individuals = () => {
-  const [weekSales, setWeekSales] = useState("10k");
-  const [yearSales, setYearSales] = useState("100k");
-  const [percentage, setPercentage] = useState(20);
+  const [weekSales, setWeekSales] = useState(4.5);
+  const [yearSales, setYearSales] = useState(93.8);
+  const [percentage, setPercentage] = useState(90);
   return (
     <div>
       <div style={{ height: "10vh" }}>
@@ -13,8 +13,8 @@ const Individuals = () => {
         <p className="ps-2 pb-2 fw-bold">North East</p>
       </div>
       <div
-        className="rounded d-flex flex-column justify-content-evenly"
-        style={{ height: "78vh" }}
+        className="rounded d-flex flex-column justify-content-between"
+        style={{ height: "78vh", fontSize: "4vw" }}
       >
         <div className="crop-container">
           <img
@@ -24,13 +24,19 @@ const Individuals = () => {
           />
         </div>
 
-        <div className="percentage-chart">
-          <h3 className="ps-3 fw-bold mt-4">{yearSales}</h3>
-          <p className="fw-bold ps-3">this year</p>
+        <div className="percentage-chart ">
+          <div className="ps-3 d-flex align-items-baseline">
+            <p className=" fs-2  fw-bold">$</p>
+            <p className=" fw-bold mt-4 mb-0">
+              {yearSales}
+            </p>
+            <p className=" fs-2  fw-bold">K</p>
+          </div>
+          <p className=" fw-semibold fs-3 ps-3 text-white nowrap">this year</p>
           <div className="d-flex justify-content-center">
-            <div className="progress" style={{ height: "10px", width: "90%" }}>
+            <div className="progress" style={{ height: "0.6vw", width: "90%" }}>
               <div
-                className="progress-bar bg-info "
+                className="progress-bar bg-info"
                 role="progressbar"
                 style={{ width: `${percentage}%` }}
               >
@@ -41,13 +47,19 @@ const Individuals = () => {
         </div>
 
         <div className="line-chart mt-4 mb-2">
-          <h3 className="ps-3 fw-bold">{weekSales}</h3>
-          <p className="fw-bold ps-3 mb-0">this week</p>
+          <div className="ps-3 d-flex align-items-baseline">
+            <p className="fs-2  fw-bold">$</p>
+            <p className="fw-bold mt-4 mb-0">
+              {weekSales}
+            </p>
+            <p className=" fs-2  fw-bold">K</p>
+          </div>
+          <p className=" fw-semibold fs-3 ps-3 mb-0 text-white nowrap">this week</p>
           <Sparklines
             data={[2, 15, 7, 10, 5, 20, 8, 15]}
             limit={8}
-            width={70}
-            height={20}
+            width={100}
+            height= {30}
             margin={5}
           >
             <SparklinesLine color="#00D1FF" />

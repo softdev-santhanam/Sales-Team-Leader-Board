@@ -7,21 +7,36 @@ import Bottom from "./Components/Bottom/Bottom";
 
 function App() {
   return (
-    <div className="main-grid-container">
-      <div className="grid-container">
-        <div className="teams-grid">
-          <TeamsSales />
-          <LeaderBoardThisYear />
-          <WeeklySales />
+    <div className="container main-grid-container bg-color1 text-white d-grid gap-2 p-0 m-auto">
+      <div className="row pt-3 ">
+        <div className="col-sm-4 d-grid gap-2 d-flex flex-column">
+          <div className="row bg-color2 rounded flex-fill">
+            <TeamsSales />
+          </div>
+          <div className="row bg-color2 rounded flex-fill">
+            <LeaderBoardThisYear />
+          </div>
+          <div className="row bg-color2 rounded flex-fill">
+            <WeeklySales />
+          </div>
         </div>
-        <div className="individual-grid">
-          <Individuals />
-          <Individuals />
-          <Individuals />
-          <Individuals />
+        <div className="container col-sm-8 d-flex gap-2 ps-2 pe-0">
+          <div className="col-sm-3 bg-color2 rounded flex-fill">
+            <Individuals />
+          </div>
+          <div className="col-sm-3 bg-color2 rounded flex-fill">
+            <Individuals />
+          </div>
+          <div className="col-sm-3 bg-color2 rounded flex-fill">
+            <Individuals />
+          </div>
+          <div className="col-sm-3 bg-color2 rounded flex-fill">
+            <Individuals />
+          </div>
         </div>
       </div>
-      <div className="bottom-grid-container">
+
+      <div className="row mb-5">
         <Bottom />
       </div>
     </div>

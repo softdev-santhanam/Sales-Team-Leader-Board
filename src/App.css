@@ -1,4 +1,24 @@
+.bg-color1 {
+  background-color: #16113a !important;
+}
+.bg-color2 {
+  background-color: #272953 !important;
+}
+.custom-color-2 {
+  color: #dedee5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #root {
+  background: #16113a;
+  height: 100%;
+}
+
+/* #root {
   background: #16113a;
   height: 100%;
 }
@@ -17,7 +37,7 @@ body {
   margin-left: 5vw;
   margin-right: 5vw;
   max-height: 100vh;
-  color: #bebecb;
+  color: #dedee5;
 }
 .grid-container {
   display: grid;
@@ -63,11 +83,11 @@ body {
   background: #272953;
 }
 
-
-.crop-container {
+ */
+ .crop-container {
   position: relative;
   overflow: hidden;
-  padding-top: 100%; /* 16:9 aspect ratio */
+  padding-top: 100%; 
 }
 .crop-container img {
   position: absolute;

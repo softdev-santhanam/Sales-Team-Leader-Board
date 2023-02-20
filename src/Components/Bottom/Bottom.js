@@ -6,7 +6,7 @@ const Bottom = () => {
   const minutes = date.getMinutes();
 
   return (
-    <div className="d-flex  justify-content-between align-items-center">
+    <div className="d-flex p-0 justify-content-between align-items-center">
       <div>
         <img
           className="me-3"
@@ -18,7 +18,7 @@ const Bottom = () => {
         <span className="fs-6 ps-3 text-end ">Powered by Lystloc</span>
       </div>
 
-      <div className="fs-3 ">{`${hours}:${minutes}`}</div>
+      <div className="fs-3">{`${hours}:${minutes}`}</div>
     </div>
   );
 };
