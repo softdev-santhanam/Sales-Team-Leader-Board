@@ -34,7 +34,7 @@ const Individuals = () => {
           </div>
           <p className=" fw-semibold fs-3 ps-3 text-white nowrap">this year</p>
           <div className="d-flex justify-content-center">
-            <div className="progress" style={{ height: "0.6vw", width: "90%" }}>
+            <div className="progress" style={{ height: "10px", width: "90%" }}>
               <div
                 className="progress-bar bg-info"
                 role="progressbar"
