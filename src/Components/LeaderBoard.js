@@ -4,14 +4,23 @@ import WeeklySalesChart from "./Charts/WeeklySalesChart";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
 const TeamsSales = () => {
-  const [weekSales, setWeekSales] = useState(52.5);
-  const [lastWeekSales, setLastWeekSales] = useState(30.2);
-  const [yearSales, setYearSales] = useState(473.2);
-  const [percentage, setPercentage] = useState(39);
-
   const date = new Date();
   const hours = date.getHours();
   const minutes = date.getMinutes();
+
+  const [TeamData, setTeamData] = useState([
+    {
+      id: 1,
+      team_name: "Sales",
+      team_revenue_gen_this_year: "473.2",
+      team_revenue_gen_this_week: "52.5",
+      team_revenue_gen_last_week: "30.2",
+      team_target_percentage: "39",
+      team_target: "1.2",
+      weekly_sales_data: [70000, 40000, 70000, 60000, 90000, 90000, 80000],
+    },
+  ]);
+  // console.log(TeamData[0].id);
 
   const [data, setData] = useState([
     {
@@ -64,13 +73,13 @@ const TeamsSales = () => {
     },
   ]);
 
-  return (
-    <div className="LHS_RHS_BOTTOM container d-grid gap-3">
+  return ( 
+    <div className="LHS_RHS_BOTTOM container-fluid d-grid gap-3 p-5">
       {/* First Row Start LHS and RHS */}
-      <div className="LHS-RHS row d-flex ">
+      <div className="LHS-RHS row d-flex flex-row justify-content-between">
         {/* LHS Start */}
-        <div className="container LHS col-md-4 d-grid">
-          <div className="TeamSales-LeaderBoard-WeeklySales row d-grid gap-3">
+        <div className="container LHS col-4 d-grid gap-3">
+          <div className="TeamSales-LeaderBoard-WeeklySales row d-grid gap-3 ">
             {/* TeamsSales */}
             <div
               className="TeamsSales row ps-3 pt-2 bg-color2 rounded"
@@ -79,13 +88,16 @@ const TeamsSales = () => {
               <p className="mb-0 fw-semibold pt-2" style={{ fontSize: "2vw" }}>
                 Team Sales
               </p>
+
               <div className="row" style={{ fontSize: "4vw" }}>
                 <div className="col-md-6 text-start">
                   <div className="d-flex align-items-baseline">
                     <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                       $
                     </p>
-                    <p className="fw-bold m-0">{yearSales}</p>
+                    <p className="fw-bold m-0">
+                      {TeamData[0].team_revenue_gen_this_year}
+                    </p>
                     <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                       K
                     </p>
@@ -103,7 +115,9 @@ const TeamsSales = () => {
                       <div
                         className="progress-bar bg-info"
                         role="progressbar"
-                        style={{ width: `${percentage}%` }}
+                        style={{
+                          width: `${TeamData[0].team_target_percentage}%`,
+                        }}
                       ></div>
                     </div>
                     <div className="progress-bar-indicator d-flex justify-content-between">
@@ -111,7 +125,7 @@ const TeamsSales = () => {
                         className="percentage-text text-info fw-bold"
                         style={{ fontSize: "10px" }}
                       >
-                        {percentage}%
+                        {TeamData[0].team_target_percentage}%
                       </div>
                       <div className="target-text d-flex align-items-baseline">
                         <span
@@ -124,7 +138,7 @@ const TeamsSales = () => {
                           className="align-baseline fw-bold"
                           style={{ fontSize: "10px" }}
                         >
-                          1.2
+                          {TeamData[0].team_target}
                         </span>
                         <span
                           className="align-baseline fw-bold"
@@ -142,7 +156,9 @@ const TeamsSales = () => {
                     <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                       $
                     </p>
-                    <p className="fw-bold m-0">{weekSales}</p>
+                    <p className="fw-bold m-0">
+                      {TeamData[0].team_revenue_gen_this_week}
+                    </p>
                     <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                       K
                     </p>
@@ -161,7 +177,7 @@ const TeamsSales = () => {
                         $
                       </p>
                       <p className="fw-bold" style={{ fontSize: "1.5vw" }}>
-                        {lastWeekSales}
+                        {TeamData[0].team_revenue_gen_last_week}
                       </p>
                       <p className="fw-bold pe-2" style={{ fontSize: "1vw" }}>
                         K
@@ -188,25 +204,16 @@ const TeamsSales = () => {
                 LeaderBoardThisYear
               </p>
               <ol className="max-height-50vh list-unstyled mt-4 fw-normal">
-                <li className="small fw-bolder p-0 my-2 d-flex justify-content-between">
-                  Paul
-                  <div className="d-flex justify-content-end">{`$${yearSales}K`}</div>
-                </li>
-                <hr className="m-0" />
-                <li className="small fw-bolder p-0 my-2 d-flex justify-content-between">
-                  Sam
-                  <div className="d-flex justify-content-end">{`$${yearSales}K`}</div>
-                </li>
-                <hr className="m-0" />
-                <li className="small fw-bolder p-0 my-2 d-flex justify-content-between">
-                  Nick
-                  <div className="d-flex justify-content-end">{`$${yearSales}K`}</div>
-                </li>
-                <hr className="m-0" />
-                <li className="small fw-bolder p-0 my-2 d-flex justify-content-between">
-                  Dale
-                  <div className="d-flex justify-content-end">{`$${yearSales}K`}</div>
-                </li>
+                {data &&
+                  data.map((item) => (
+                    <div key={item.id}>
+                      <li className="small fw-bolder p-0 my-2 d-flex justify-content-between">
+                        {item.p_name}
+                        <div className="d-flex justify-content-end">{`$${item.revenue_gen_this_year}K`}</div>
+                      </li>
+                      <hr className="m-0" />
+                    </div>
+                  ))}
               </ol>
             </div>
             {/* LeaderBoardThisYear */}
@@ -219,7 +226,7 @@ const TeamsSales = () => {
               <div className="pt-2 fw-semibold" style={{ fontSize: "2vw" }}>
                 WeeklySales
               </div>
-              <WeeklySalesChart />
+              <WeeklySalesChart data={TeamData}/>
             </div>
             {/* WeeklySalesChart */}
           </div>
@@ -227,7 +234,7 @@ const TeamsSales = () => {
         {/* LHS Start */}
 
         {/* RHS Start */}
-        <div className="RHS container col-md-8 d-flex ps-4">
+        <div className="RHS container col-8 d-flex">
           <div className="row d-flex gap-3 flex-fill">
             {data &&
               data?.map((items, index) => (
@@ -376,7 +383,7 @@ const TeamsSales = () => {
       {/* Second Start End LHS and RHS */}
       {/* Bottom Start */}
       <div className="Bottom row d-flex p-0 justify-content-between align-items-center">
-        <div className="col-11 d-flex p-0 justify-content-start">
+        <div className="col-11 d-flex p-0 justify-content-start align-items-center">
           <img
             className="me-3"
             style={{ maxWidth: "6%", maxHeight: "10%" }}

@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import * as echarts from "echarts";
 
-const WeeklySalesChart = () => {
+const WeeklySalesChart = (props) => {
+  const { data } = props;
+  // console.log(data[0].weekly_sales_data);
+  const chartData = data[0].weekly_sales_data;
+
   useEffect(() => {
     var chartDom = document.getElementById("myChart1");
     var myChart = echarts.init(chartDom);
@@ -17,7 +21,7 @@ const WeeklySalesChart = () => {
           },
         },
       },
-      
+
       yAxis: {
         type: "value",
         min: 0,
@@ -45,7 +49,7 @@ const WeeklySalesChart = () => {
 
       series: [
         {
-          data: [70000, 40000, 70000, 60000, 90000, 90000, 80000],
+          data: chartData,
           type: "line",
           lineStyle: {
             opacity: 0.9,
@@ -56,17 +60,8 @@ const WeeklySalesChart = () => {
     };
 
     option && myChart.setOption(option);
-  }, []);
-  return (
-    <div
-      id="myChart1"
-      className="d-flex justify-content-center align-items-center  ps-4 "
-      style={{
-        height: "25vh",
-        width: "30vw",
-      }}
-    ></div>
-  );
+  }, [chartData]);
+  return <div id="myChart1" className="h-100"></div>;
 };
 
 export default WeeklySalesChart;
