@@ -45,7 +45,7 @@ const WeeklySalesChart = () => {
 
       series: [
         {
-          data: [70000, 40000, 70000, 60000, 90000, 100000, 80000],
+          data: [70000, 40000, 70000, 60000, 90000, 90000, 80000],
           type: "line",
           lineStyle: {
             opacity: 0.9,
@@ -60,10 +60,10 @@ const WeeklySalesChart = () => {
   return (
     <div
       id="myChart1"
-      className="d-flex align-items-center"
+      className="d-flex justify-content-center align-items-center  ps-4 "
       style={{
         height: "25vh",
-        width: "auto",
+        width: "30vw",
       }}
     ></div>
   );
