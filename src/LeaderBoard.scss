@@ -90,3 +90,24 @@
   max-width: 150px;
   max-height: 300px;
 }
+
+.containerLayoutDashboardLayout {
+  height: 56.25vw;
+  left: 50%;
+  max-height: 100vh;
+  max-width: 177.7777777778vh;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 100vw;
+}
+
+.Bottom-text {
+  font-size: 1.5vw;
+  font-weight: 400;
+}
+
+.Bottom-text-1 {
+  font-size: 1vw;
+}

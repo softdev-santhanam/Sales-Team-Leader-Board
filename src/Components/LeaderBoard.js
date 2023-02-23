@@ -75,12 +75,12 @@ const TeamsSales = () => {
   ]);
 
   return (
-    <div className="LHS_RHS_BOTTOM text-color-2 bg-color1 container-fluid d-grid gap-3 p-5">
+    <div className="LHS_RHS_BOTTOM containerLayoutDashboardLayout text-color-2 bg-color1 container-fluid d-grid gap-3 px-5 pt-5 ">
       {/* First Row Start LHS and RHS */}
       <div className="LHS-RHS row d-flex gap-0 flex-row justify-content-between">
         {/* LHS Start */}
-        <div className="container LHS col-4 p-0">
-          <div className="TeamSales-LeaderBoard-WeeklySales d-flex flex-column gap-3">
+        <div className="container LHS col-4">
+          <div className="TeamSales-LeaderBoard-WeeklySales d-grid gap-3">
             {/* TeamsSales */}
             <div
               className="TeamsSales row ps-2 pt-2 m-0 bg-color2 rounded"
@@ -131,7 +131,7 @@ const TeamsSales = () => {
                     <div className="progress-bar-indicator d-flex justify-content-between">
                       <div
                         className="achieved-percentage-text text-info fw-bold"
-                        style={{ fontSize: "0.8vw" }}
+                        style={{ fontSize: "0.6vw" }}
                       >
                         {TeamData[0].team_target_percentage}%
                       </div>
@@ -147,7 +147,7 @@ const TeamsSales = () => {
                         </span>
                         <span
                           className="align-baseline fw-bold"
-                          style={{ fontSize: "0.8vw" }}
+                          style={{ fontSize: "0.6vw" }}
                         >
                           {TeamData[0].team_target}
                         </span>
@@ -257,8 +257,8 @@ const TeamsSales = () => {
         {/* LHS Start */}
 
         {/* RHS Start */}
-        <div className="RHS container col-8">
-          <div className="row d-flex gap-3  ps-3">
+        <div className="RHS container col-8 p-0 m-0 ps-3">
+          <div className="row d-flex gap-3 ">
             {/* gap-3 */}
             {data &&
               data?.map((items, index) => (
@@ -422,16 +422,16 @@ const TeamsSales = () => {
       <div className="Bottom row d-flex p-0 justify-content-between align-items-center">
         <div className="col-11 d-flex p-0 justify-content-start align-items-center">
           <img
-            className="me-3"
+            className="mx-3 "
             style={{ maxWidth: "6%", maxHeight: "10%" }}
             src="https://play-lh.googleusercontent.com/g5WIaqQ00BCBnBsktGwbBISJDOuDLrn7TEupVk_5gDznboxSvUHs-oxi9zvqXAvdLA"
             alt="icon"
           ></img>
-          <span className="fs-5">Sales team leader board</span>
-          <span className="fs-6 ps-3 text-end ">Powered by Lystloc</span>
+          <span className="Bottom-text">Sales team leader board</span>
+          <span className="Bottom-text-1 ps-3 text-end ">Powered by Lystloc</span>
         </div>
 
-        <div className="fs-3 col-1 d-flex justify-content-end p-0">{`${hours}:${minutes}`}</div>
+        <span className="Bottom-text col-1 d-flex justify-content-end p-0">{`${hours}:${minutes}`}</span>
       </div>
       {/* Bottom Start */}
       {/* Second Row End LHS and RHS */}
