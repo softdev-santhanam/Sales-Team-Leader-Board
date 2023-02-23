@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IoMdArrowDropup } from "react-icons/io";
 import WeeklySalesChart from "./Charts/WeeklySalesChart";
 import { Sparklines, SparklinesLine } from "react-sparklines";
+import "../LeaderBoard.scss";
 
 const TeamsSales = () => {
   const date = new Date();
@@ -33,7 +34,7 @@ const TeamsSales = () => {
       target_percentage: "31",
       revenue_gen_this_year: "93.3",
       revenue_gen_this_week: "4.5",
-      sparkline_data: [2, 15, 7, 10, 5, 20, 8, 15],
+      sparkline_data: [2, 15, 7, 10, 5, 12, 8, 10],
     },
     {
       id: 2,
@@ -45,7 +46,7 @@ const TeamsSales = () => {
       target_percentage: "33",
       revenue_gen_this_year: "101",
       revenue_gen_this_week: "4",
-      sparkline_data: [2, 15, 7, 10, 5, 14, 6, 4],
+      sparkline_data: [6, 12, 7, 10, 5, 11, 6, 4],
     },
     {
       id: 3,
@@ -57,7 +58,7 @@ const TeamsSales = () => {
       target_percentage: "48",
       revenue_gen_this_year: "145",
       revenue_gen_this_week: "19",
-      sparkline_data: [12, 15, 7, 18, 8, 24, 8, 15],
+      sparkline_data: [12, 15, 21, 18, 20, 24, 20, 21],
     },
     {
       id: 4,
@@ -69,27 +70,33 @@ const TeamsSales = () => {
       target_percentage: "44",
       revenue_gen_this_year: "133",
       revenue_gen_this_week: "25",
-      sparkline_data: [14, 15, 8, 18, 12, 24, 18, 26],
+      sparkline_data: [16, 22, 19, 24, 23, 26, 24, 28],
     },
   ]);
 
-  return ( 
-    <div className="LHS_RHS_BOTTOM container-fluid d-grid gap-3 p-5">
+  return (
+    <div className="LHS_RHS_BOTTOM text-color-2 bg-color1 container-fluid d-grid gap-3 p-5">
       {/* First Row Start LHS and RHS */}
-      <div className="LHS-RHS row d-flex flex-row justify-content-between">
+      <div className="LHS-RHS row d-flex gap-0 flex-row justify-content-between">
         {/* LHS Start */}
-        <div className="container LHS col-4 d-grid gap-3">
-          <div className="TeamSales-LeaderBoard-WeeklySales row d-grid gap-3 ">
+        <div className="container LHS col-4 p-0">
+          <div className="TeamSales-LeaderBoard-WeeklySales d-flex flex-column gap-3">
             {/* TeamsSales */}
             <div
-              className="TeamsSales row ps-3 pt-2 bg-color2 rounded"
+              className="TeamsSales row ps-2 pt-2 m-0 bg-color2 rounded"
               style={{ fontSize: "1.3vw" }}
             >
-              <p className="mb-0 fw-semibold pt-2" style={{ fontSize: "2vw" }}>
+              <p
+                className="mb-0 fw-semibold pt-2"
+                style={{ fontSize: "1.5vw" }}
+              >
                 Team Sales
               </p>
 
-              <div className="row" style={{ fontSize: "4vw" }}>
+              <div
+                className="row d-flex flex-nowrap"
+                style={{ fontSize: "3.5vw" }}
+              >
                 <div className="col-md-6 text-start">
                   <div className="d-flex align-items-baseline">
                     <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
@@ -103,15 +110,16 @@ const TeamsSales = () => {
                     </p>
                   </div>
 
-                  <p className="fw-semibold fs-5 text-white nowrap mt-1">
+                  <p
+                    className="fw-semibold mt-1 d-flex flex-nowrap"
+                    style={{ fontSize: "1.7vw" }}
+                  >
                     this year
                   </p>
 
-                  <div className="d-flex flex-column py-3 my-3">
-                    <div
-                      className="progress"
-                      style={{ height: "10px", width: "100%" }}
-                    >
+                  {/*Team Sales Progress Bar */}
+                  <div className="team-sales-progress-bar-container ">
+                    <div className="progress" style={{ height: "0.6vw" }}>
                       <div
                         className="progress-bar bg-info"
                         role="progressbar"
@@ -122,27 +130,33 @@ const TeamsSales = () => {
                     </div>
                     <div className="progress-bar-indicator d-flex justify-content-between">
                       <div
-                        className="percentage-text text-info fw-bold"
-                        style={{ fontSize: "10px" }}
+                        className="achieved-percentage-text text-info fw-bold"
+                        style={{ fontSize: "0.8vw" }}
                       >
                         {TeamData[0].team_target_percentage}%
                       </div>
-                      <div className="target-text d-flex align-items-baseline">
+                      <div className="total-target-text d-flex align-items-baseline">
                         <span
                           className="fw-bold"
-                          style={{ fontSize: "5px", marginRight: "1px" }}
+                          style={{
+                            fontSize: "0.4vw",
+                            marginRight: "0.1vw",
+                          }}
                         >
                           $
                         </span>
                         <span
                           className="align-baseline fw-bold"
-                          style={{ fontSize: "10px" }}
+                          style={{ fontSize: "0.8vw" }}
                         >
                           {TeamData[0].team_target}
                         </span>
                         <span
                           className="align-baseline fw-bold"
-                          style={{ fontSize: "5px", marginLeft: "1px" }}
+                          style={{
+                            fontSize: "0.4vw",
+                            marginLeft: "0.1vw",
+                          }}
                         >
                           M
                         </span>
@@ -164,31 +178,37 @@ const TeamsSales = () => {
                     </p>
                   </div>
 
-                  <p className="ps-2 fw-semibold fs-5 text-white nowrap mt-1">
+                  <p
+                    className="ps-2 fw-semibold mt-1 d-flex flex-nowrap"
+                    style={{ fontSize: "1.7vw" }}
+                  >
                     this week
                   </p>
 
-                  <div className="d-flex align-items-center my-3">
-                    <p className="fs-1 color-3 d-flex align-items-start">
+                  <div className="d-flex align-items-center m-0">
+                    <span
+                      className="color-3 d-flex align-items-start"
+                      style={{ fontSize: "2vw" }}
+                    >
                       <IoMdArrowDropup />
-                    </p>
+                    </span>
                     <div className="color-3 d-flex align-items-baseline">
-                      <p className="fw-bold" style={{ fontSize: "1vw" }}>
+                      <span className="fw-bold m-0" style={{ fontSize: "1vw" }}>
                         $
-                      </p>
-                      <p className="fw-bold" style={{ fontSize: "1.5vw" }}>
+                      </span>
+                      <span className="fw-bold m-0" style={{ fontSize: "1.5vw" }}>
                         {TeamData[0].team_revenue_gen_last_week}
-                      </p>
-                      <p className="fw-bold pe-2" style={{ fontSize: "1vw" }}>
+                      </span>
+                      <span className="fw-bold pe-2 m-0" style={{ fontSize: "1vw" }}>
                         K
-                      </p>
+                      </span>
                     </div>
-                    <p
-                      className="text-nowrap fw-semibold nowrap"
+                    <span
+                      className="text-nowrap fw-semibold nowrap m-0 d-flex align-items-start"
                       style={{ fontSize: "1vw" }}
                     >
                       V last week
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -197,17 +217,20 @@ const TeamsSales = () => {
 
             {/* LeaderBoardThisYear */}
             <div
-              className="LeaderBoardThisYear row ps-3 pt-2 bg-color2 rounded"
+              className="LeaderBoardThisYear row ps-2 pt-2 m-0 bg-color2 rounded"
               style={{ fontSize: "1.3vw" }}
             >
-              <p className="mb-0 fw-semibold" style={{ fontSize: "2vw" }}>
+              <p className="mb-0 fw-semibold" style={{ fontSize: "1.5vw" }}>
                 LeaderBoardThisYear
               </p>
-              <ol className="max-height-50vh list-unstyled mt-4 fw-normal">
+              <ol className="list-unstyled mt-2 fw-normal">
                 {data &&
                   data.map((item) => (
                     <div key={item.id}>
-                      <li className="small fw-bolder p-0 my-2 d-flex justify-content-between">
+                      <li
+                        className="small fw-bold p-0 my-1 d-flex justify-content-between"
+                        style={{ fontSize: "1vw" }}
+                      >
                         {item.p_name}
                         <div className="d-flex justify-content-end">{`$${item.revenue_gen_this_year}K`}</div>
                       </li>
@@ -220,13 +243,13 @@ const TeamsSales = () => {
 
             {/* WeeklySalesChart */}
             <div
-              className=" WeeklySalesChart row ps-3 pt-2 bg-color2 rounded"
+              className=" WeeklySalesChart row p-0 m-0 h-100 bg-color2 rounded"
               style={{ fontSize: "1.3vw" }}
             >
-              <div className="pt-2 fw-semibold" style={{ fontSize: "2vw" }}>
+              <span className="pt-2 m-0 fw-semibold" style={{ fontSize: "1.5vw" }}>
                 WeeklySales
-              </div>
-              <WeeklySalesChart data={TeamData}/>
+              </span>
+              <WeeklySalesChart data={TeamData} />
             </div>
             {/* WeeklySalesChart */}
           </div>
@@ -234,45 +257,43 @@ const TeamsSales = () => {
         {/* LHS Start */}
 
         {/* RHS Start */}
-        <div className="RHS container col-8 d-flex">
-          <div className="row d-flex gap-3 flex-fill">
+        <div className="RHS container col-8">
+          <div className="row d-flex gap-3  ps-3">
+            {/* gap-3 */}
             {data &&
               data?.map((items, index) => (
                 <div
                   key={items.id}
-                  className={`data-element bg-color2 rounded d-flex flex-column ${
+                  className={`data-element bg-color2 rounded p-0 d-flex flex-column ${
                     index !== 0 ? "" : ""
                   }`}
                 >
                   <div
-                    className="rounded d-flex justify-content-between flex-row"
-                    style={{ fontSize: "4vw" }}
+                    className="container row rounded d-flex justify-content-between flex-row flex-nowrap h-100 p-0 m-0"
+                    style={{ fontSize: "3.5vw" }}
                   >
-                    {/* Image */}
-                    <div className="Image p-3 w-25 h-100">
-                      {/* Heading */}
-                      <div>
-                        <h1
-                          className="Heading m-0 pt-2 fw-bold text-nowrap lh-sm"
-                          style={{ fontSize: "1.5vw", padding: "0.5vw" }}
-                        >
-                          {items.p_name}
-                        </h1>
-                        <header>
-                          <h1
-                            className="p-2 m-0 pb-2 text-nowrap lh-lg"
-                            style={{ fontSize: "1.5vw" }}
-                          >
-                            {items.p_region}
-                          </h1>
-                        </header>
-                      </div>
-                      <div
-                        className="Image profileIcon h-50"
-                        style={{ height: "100px", width: "100px" }}
+                    {/* Heading */}
+                    <div className="col-2 pt-2">
+                      <h1
+                        className="Heading m-0 p-0 fw-bold text-nowrap lh-sm"
+                        style={{ fontSize: "2.5vw" }}
                       >
+                        {items.p_name}
+                      </h1>
+                      <header>
+                        <h1
+                          className="p-0 text-nowrap lh-sm"
+                          style={{ fontSize: "1.5vw" }}
+                        >
+                          {items.p_region}
+                        </h1>
+                      </header>
+                    </div>
+                    {/* Image */}
+                    <div className="col Image p-0 w-100">
+                      <div className="Image profileIcon h-100 ">
                         <img
-                          className="img-fluid h-100 rounded-circle"
+                          className="img-fluid h-100 "
                           src={items.p_img}
                           alt="Profile Icon"
                         />
@@ -280,8 +301,8 @@ const TeamsSales = () => {
                     </div>
 
                     {/* This Year */}
-                    <div className="ThisYear container p-3 w-25 h-100 d-flex flex-column">
-                      <div className="">
+                    <div className="col This-year-container container m-0 p-2 w-25 h-100 d-flex flex-column justify-content-between">
+                      <div className="this-year-text-data">
                         <span
                           className="fw-bold align-baseline"
                           style={{ fontSize: "2vw" }}
@@ -298,12 +319,16 @@ const TeamsSales = () => {
                           K
                         </span>
                       </div>
-                      <div className="fw-semibold fs-6 mb-3">this year</div>
-                      <div className="d-flex flex-column">
-                        <div
-                          className="progress"
-                          style={{ height: "10px", width: "100%" }}
-                        >
+                      <div
+                        className="this-year-text fw-semibold"
+                        style={{ fontSize: "1vw" }}
+                      >
+                        this year
+                      </div>
+
+                      {/* Individual Progress Bar */}
+                      <div className="percentage-bar-container d-flex flex-column">
+                        <div className="progress" style={{ height: "0.6vw" }}>
                           <div
                             className="progress-bar bg-info"
                             role="progressbar"
@@ -312,27 +337,33 @@ const TeamsSales = () => {
                         </div>
                         <div className="progress-bar-indicator d-flex justify-content-between">
                           <div
-                            className="percentage-text text-info fw-bold"
-                            style={{ fontSize: "10px" }}
+                            className="achieved-percentage-text text-info fw-bold"
+                            style={{ fontSize: "0.6vw" }}
                           >
                             {items.target_percentage}%
                           </div>
-                          <div className="target-text d-flex align-items-baseline">
+                          <div className="total-target-text d-flex align-items-baseline">
                             <span
                               className="fw-bold"
-                              style={{ fontSize: "5px", marginRight: "1px" }}
+                              style={{
+                                fontSize: "0.25vw",
+                                marginRight: "0.1vw",
+                              }}
                             >
                               $
                             </span>
                             <span
                               className="align-baseline fw-bold"
-                              style={{ fontSize: "10px" }}
+                              style={{ fontSize: "0.6vw" }}
                             >
                               {items.target}
                             </span>
                             <span
                               className="align-baseline fw-bold"
-                              style={{ fontSize: "5px", marginLeft: "1px" }}
+                              style={{
+                                fontSize: "0.25vw",
+                                marginLeft: "0.1vw",
+                              }}
                             >
                               K
                             </span>
@@ -342,8 +373,8 @@ const TeamsSales = () => {
                     </div>
 
                     {/* This Week */}
-                    <div className="ThisWeek p-3 w-50 h-100">
-                      <div className="">
+                    <div className="col-4 ThisWeek h-100 w-25 p-2 d-flex flex-column justify-content-between">
+                      <div className="this-week-text-data">
                         <span
                           className="fw-bold align-baseline"
                           style={{ fontSize: "2vw" }}
@@ -360,16 +391,22 @@ const TeamsSales = () => {
                           K
                         </span>
                       </div>
-                      <div className="fw-semibold fs-5">this week</div>
-                      <Sparklines
-                        data={items.sparkline_data}
-                        limit={8}
-                        width={100}
-                        height={30}
-                        margin={5}
+                      <div
+                        className="this-week-text fw-semibold"
+                        style={{ fontSize: "1vw" }}
                       >
-                        <SparklinesLine color="#00D1FF" />
-                      </Sparklines>
+                        this week
+                      </div>
+
+                      <div className="spark-line-chart-container d-flex justify-content-start">
+                        <Sparklines
+                          className="spark-line-chart-data"
+                          data={items.sparkline_data}
+                          limit={8}
+                        >
+                          <SparklinesLine color="#00D1FF" />
+                        </Sparklines>
+                      </div>
                     </div>
                   </div>
                 </div>

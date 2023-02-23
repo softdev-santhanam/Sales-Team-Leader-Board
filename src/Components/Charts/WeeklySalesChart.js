@@ -3,15 +3,13 @@ import * as echarts from "echarts";
 
 const WeeklySalesChart = (props) => {
   const { data } = props;
-  // console.log(data[0].weekly_sales_data);
   const chartData = data[0].weekly_sales_data;
 
   useEffect(() => {
-    var chartDom = document.getElementById("myChart1");
-    var myChart = echarts.init(chartDom);
-    var option;
+    const chartDom = document.getElementById("myChart1");
+    const myChart = echarts.init(chartDom);
 
-    option = {
+    const option = {
       xAxis: {
         type: "category",
         data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -59,9 +57,33 @@ const WeeklySalesChart = (props) => {
       ],
     };
 
-    option && myChart.setOption(option);
+    myChart.setOption(option);
+
+    // Resize chart when window is resized
+    const resizeChart = () => {
+      myChart.resize();
+    };
+
+    window.addEventListener("resize", resizeChart);
+
+    return () => {
+      window.removeEventListener("resize", resizeChart);
+    };
   }, [chartData]);
-  return <div id="myChart1" className="h-100"></div>;
+
+  return (
+    <div
+      id="myChart1"
+      className="WeeklySalesChart d-flex justify-content-center"
+      style={{
+        height: "25vh",
+        width: "100%",
+        position: "relative",
+        top: "-20px",
+        overflow: "visible",
+      }}
+    ></div>
+  );
 };
 
 export default WeeklySalesChart;
