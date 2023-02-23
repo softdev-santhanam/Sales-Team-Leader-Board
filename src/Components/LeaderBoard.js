@@ -419,10 +419,10 @@ const TeamsSales = () => {
 
       {/* Second Start End LHS and RHS */}
       {/* Bottom Start */}
-      <div className="Bottom row d-flex p-0 justify-content-between align-items-center">
-        <div className="col-11 d-flex p-0 justify-content-start align-items-center">
+      <div className="Bottom d-flex justify-content-between align-items-center">
+        <div className="">
           <img
-            className="mx-3 "
+            className="me-3"
             style={{ maxWidth: "6%", maxHeight: "10%" }}
             src="https://play-lh.googleusercontent.com/g5WIaqQ00BCBnBsktGwbBISJDOuDLrn7TEupVk_5gDznboxSvUHs-oxi9zvqXAvdLA"
             alt="icon"
@@ -431,7 +431,7 @@ const TeamsSales = () => {
           <span className="Bottom-text-1 ps-3 text-end ">Powered by Lystloc</span>
         </div>
 
-        <span className="Bottom-text col-1 d-flex justify-content-end p-0">{`${hours}:${minutes}`}</span>
+        <div className="Bottom-text d-flex justify-content-end p-0 m-0">{`${hours}:${minutes}`}</div>
       </div>
       {/* Bottom Start */}
       {/* Second Row End LHS and RHS */}
