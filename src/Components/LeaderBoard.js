@@ -254,7 +254,7 @@ const TeamsSales = () => {
             {/* WeeklySalesChart */}
           </div>
         </div>
-        {/* LHS Start */}
+        {/* LHS End */}
 
         {/* RHS Start */}
         <div className="RHS container col-8 p-0 m-0 ps-3">
