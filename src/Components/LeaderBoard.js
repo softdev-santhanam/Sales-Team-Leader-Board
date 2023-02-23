@@ -75,7 +75,7 @@ const TeamsSales = () => {
   ]);
 
   return (
-    <div className="LHS_RHS_BOTTOM containerLayoutDashboardLayout text-color-2 bg-color1 container-fluid d-grid gap-3 px-5 pt-5 ">
+    <div className="LHS_RHS_BOTTOM containerLayoutDashboardLayout text-color-2 bg-color1 container-fluid d-grid gap-3 px-5 pt-4 pb-3">
       {/* First Row Start LHS and RHS */}
       <div className="LHS-RHS row d-flex gap-0 flex-row justify-content-between">
         {/* LHS Start */}
