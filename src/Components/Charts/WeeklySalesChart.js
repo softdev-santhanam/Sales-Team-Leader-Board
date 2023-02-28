@@ -74,10 +74,10 @@ const WeeklySalesChart = (props) => {
   return (
     <div
       id="myChart1"
-      className="WeeklySalesChart d-flex justify-content-center ps-3"
+      className="WeeklySalesChart d-flex  ps-3"
       style={{
-        height: "25vh",
-        width: "100%",
+        height: "100%",
+        width: "90%",
         position: "relative",
         top: "-20px",
         overflow: "visible",

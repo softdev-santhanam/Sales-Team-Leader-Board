@@ -75,7 +75,7 @@ const TeamsSales = () => {
   ]);
 
   return (
-    <div className="LHS_RHS_BOTTOM containerLayoutDashboardLayout text-color-2 bg-color1 container-fluid d-grid gap-3 px-5 pt-4 pb-3">
+    <div className="LHS_RHS_BOTTOM text-color-2 bg-color1 container-fluid d-grid gap-3 px-5 py-3">
       {/* First Row Start LHS and RHS */}
       <div className="LHS-RHS row d-flex gap-0 flex-row justify-content-between">
         {/* LHS Start */}
@@ -95,9 +95,9 @@ const TeamsSales = () => {
 
               <div
                 className="row d-flex flex-nowrap"
-                style={{ fontSize: "3.5vw" }}
+                style={{ fontSize: "3vw" }}
               >
-                <div className="col-md-6 text-start">
+                <div className="col-6 text-start">
                   <div className="d-flex align-items-baseline">
                     <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                       $
@@ -110,16 +110,16 @@ const TeamsSales = () => {
                     </p>
                   </div>
 
-                  <p
-                    className="fw-semibold mt-1 d-flex flex-nowrap"
+                  <span
+                    className="fw-semibold d-flex text-nowrap"
                     style={{ fontSize: "1.7vw" }}
                   >
                     this year
-                  </p>
+                  </span>
 
                   {/*Team Sales Progress Bar */}
-                  <div className="team-sales-progress-bar-container ">
-                    <div className="progress" style={{ height: "0.6vw" }}>
+                  <div className="team-sales-progress-bar-container">
+                    <div className="progress" style={{ height: "0.6vw", marginTop: "1.5vh" }}>
                       <div
                         className="progress-bar bg-info"
                         role="progressbar"
@@ -165,7 +165,7 @@ const TeamsSales = () => {
                   </div>
                 </div>
 
-                <div className="col-md-6 text-start">
+                <div className="col-6 text-start">
                   <div className="ps-2 d-flex align-items-baseline">
                     <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                       $
@@ -178,12 +178,12 @@ const TeamsSales = () => {
                     </p>
                   </div>
 
-                  <p
-                    className="ps-2 fw-semibold mt-1 d-flex flex-nowrap"
+                  <span
+                    className="ps-2 fw-semibold d-flex text-nowrap"
                     style={{ fontSize: "1.7vw" }}
                   >
                     this week
-                  </p>
+                  </span>
 
                   <div className="d-flex align-items-center m-0">
                     <span
@@ -196,10 +196,16 @@ const TeamsSales = () => {
                       <span className="fw-bold m-0" style={{ fontSize: "1vw" }}>
                         $
                       </span>
-                      <span className="fw-bold m-0" style={{ fontSize: "1.5vw" }}>
+                      <span
+                        className="fw-bold m-0"
+                        style={{ fontSize: "1.5vw" }}
+                      >
                         {TeamData[0].team_revenue_gen_last_week}
                       </span>
-                      <span className="fw-bold pe-2 m-0" style={{ fontSize: "1vw" }}>
+                      <span
+                        className="fw-bold m-0"
+                        style={{ fontSize: "1vw", paddingRight: "1vw" }}
+                      >
                         K
                       </span>
                     </div>
@@ -242,11 +248,11 @@ const TeamsSales = () => {
             {/* LeaderBoardThisYear */}
 
             {/* WeeklySalesChart */}
-            <div
-              className=" WeeklySalesChart row p-0 m-0 h-100 bg-color2 rounded"
-              style={{ fontSize: "1.3vw" }}
-            >
-              <span className="pt-2 m-0 fw-semibold" style={{ fontSize: "1.5vw" }}>
+            <div className=" WeeklySalesChart row p-0 m-0 bg-color2 rounded">
+              <span
+                className="pt-2 m-0 fw-semibold"
+                style={{ fontSize: "1.5vw" }}
+              >
                 WeeklySales
               </span>
               <WeeklySalesChart data={TeamData} />
@@ -258,19 +264,19 @@ const TeamsSales = () => {
 
         {/* RHS Start */}
         <div className="RHS container col-8 p-0 m-0 ps-3">
-          <div className="row d-flex gap-3 ">
+          <div className="RHS_CHILD row d-flex gap-3 h-100">
             {/* gap-3 */}
             {data &&
               data?.map((items, index) => (
                 <div
                   key={items.id}
-                  className={`data-element bg-color2 rounded p-0 d-flex flex-column ${
+                  className={`data-element bg-color2 rounded p-0 d-flex flex-column h-100 justify-content-center align-items-center ${
                     index !== 0 ? "" : ""
                   }`}
                 >
                   <div
                     className="container row rounded d-flex justify-content-between flex-row flex-nowrap h-100 p-0 m-0"
-                    style={{ fontSize: "3.5vw" }}
+                    style={{ fontSize: "3vw" }}
                   >
                     {/* Heading */}
                     <div className="col-2 pt-2">
@@ -428,7 +434,9 @@ const TeamsSales = () => {
             alt="icon"
           ></img>
           <span className="Bottom-text">Sales team leader board</span>
-          <span className="Bottom-text-1 ps-3 text-end ">Powered by Lystloc</span>
+          <span className="Bottom-text-1 ps-3 text-end ">
+            Powered by Lystloc
+          </span>
         </div>
 
         <div className="Bottom-text d-flex justify-content-end p-0 m-0">{`${hours}:${minutes}`}</div>
