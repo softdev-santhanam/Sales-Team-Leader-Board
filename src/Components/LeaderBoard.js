@@ -75,270 +75,62 @@ const TeamsSales = () => {
   ]);
 
   return (
-    <div className="LHS_RHS_BOTTOM text-color-2 bg-color1 container-fluid d-grid gap-3 px-5 py-3">
-      {/* First Row Start LHS and RHS */}
-      <div className="LHS-RHS row d-flex gap-0 flex-row justify-content-between">
-        {/* LHS Start */}
-        <div className="container LHS col-4">
-          <div className="TeamSales-LeaderBoard-WeeklySales d-grid gap-3">
-            {/* TeamsSales */}
-            <div
-              className="TeamsSales row ps-2 pt-2 m-0 bg-color2 rounded"
-              style={{ fontSize: "1.3vw" }}
-            >
-              <p
-                className="mb-0 fw-semibold pt-2"
-                style={{ fontSize: "1.5vw" }}
-              >
-                Team Sales
-              </p>
-
-              <div
-                className="row d-flex flex-nowrap"
-                style={{ fontSize: "3vw" }}
-              >
-                <div className="col-6 text-start">
-                  <div className="d-flex align-items-baseline">
-                    <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
-                      $
-                    </p>
-                    <p className="fw-bold m-0">
-                      {TeamData[0].team_revenue_gen_this_year}
-                    </p>
-                    <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
-                      K
-                    </p>
-                  </div>
-
-                  <span
-                    className="fw-semibold d-flex text-nowrap"
-                    style={{ fontSize: "1.7vw" }}
-                  >
-                    this year
-                  </span>
-
-                  {/*Team Sales Progress Bar */}
-                  <div className="team-sales-progress-bar-container">
-                    <div className="progress" style={{ height: "0.6vw", marginTop: "1.5vh" }}>
-                      <div
-                        className="progress-bar bg-info"
-                        role="progressbar"
-                        style={{
-                          width: `${TeamData[0].team_target_percentage}%`,
-                        }}
-                      ></div>
-                    </div>
-                    <div className="progress-bar-indicator d-flex justify-content-between">
-                      <div
-                        className="achieved-percentage-text text-info fw-bold"
-                        style={{ fontSize: "0.6vw" }}
-                      >
-                        {TeamData[0].team_target_percentage}%
-                      </div>
-                      <div className="total-target-text d-flex align-items-baseline">
-                        <span
-                          className="fw-bold"
-                          style={{
-                            fontSize: "0.4vw",
-                            marginRight: "0.1vw",
-                          }}
-                        >
-                          $
-                        </span>
-                        <span
-                          className="align-baseline fw-bold"
-                          style={{ fontSize: "0.6vw" }}
-                        >
-                          {TeamData[0].team_target}
-                        </span>
-                        <span
-                          className="align-baseline fw-bold"
-                          style={{
-                            fontSize: "0.4vw",
-                            marginLeft: "0.1vw",
-                          }}
-                        >
-                          M
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-6 text-start">
-                  <div className="ps-2 d-flex align-items-baseline">
-                    <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
-                      $
-                    </p>
-                    <p className="fw-bold m-0">
-                      {TeamData[0].team_revenue_gen_this_week}
-                    </p>
-                    <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
-                      K
-                    </p>
-                  </div>
-
-                  <span
-                    className="ps-2 fw-semibold d-flex text-nowrap"
-                    style={{ fontSize: "1.7vw" }}
-                  >
-                    this week
-                  </span>
-
-                  <div className="d-flex align-items-center m-0">
-                    <span
-                      className="color-3 d-flex align-items-start"
-                      style={{ fontSize: "2vw" }}
-                    >
-                      <IoMdArrowDropup />
-                    </span>
-                    <div className="color-3 d-flex align-items-baseline">
-                      <span className="fw-bold m-0" style={{ fontSize: "1vw" }}>
-                        $
-                      </span>
-                      <span
-                        className="fw-bold m-0"
-                        style={{ fontSize: "1.5vw" }}
-                      >
-                        {TeamData[0].team_revenue_gen_last_week}
-                      </span>
-                      <span
-                        className="fw-bold m-0"
-                        style={{ fontSize: "1vw", paddingRight: "1vw" }}
-                      >
-                        K
-                      </span>
-                    </div>
-                    <span
-                      className="text-nowrap fw-semibold nowrap m-0 d-flex align-items-start"
-                      style={{ fontSize: "1vw" }}
-                    >
-                      V last week
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* TeamsSales */}
-
-            {/* LeaderBoardThisYear */}
-            <div
-              className="LeaderBoardThisYear row ps-2 pt-2 m-0 bg-color2 rounded"
-              style={{ fontSize: "1.3vw" }}
-            >
-              <p className="mb-0 fw-semibold" style={{ fontSize: "1.5vw" }}>
-                LeaderBoardThisYear
-              </p>
-              <ol className="list-unstyled mt-2 fw-normal">
-                {data &&
-                  data.map((item) => (
-                    <div key={item.id}>
-                      <li
-                        className="small fw-bold p-0 my-1 d-flex justify-content-between"
-                        style={{ fontSize: "1vw" }}
-                      >
-                        {item.p_name}
-                        <div className="d-flex justify-content-end">{`$${item.revenue_gen_this_year}K`}</div>
-                      </li>
-                      <hr className="m-0" />
-                    </div>
-                  ))}
-              </ol>
-            </div>
-            {/* LeaderBoardThisYear */}
-
-            {/* WeeklySalesChart */}
-            <div className=" WeeklySalesChart row p-0 m-0 bg-color2 rounded">
-              <span
-                className="pt-2 m-0 fw-semibold"
-                style={{ fontSize: "1.5vw" }}
-              >
-                WeeklySales
-              </span>
-              <WeeklySalesChart data={TeamData} />
-            </div>
-            {/* WeeklySalesChart */}
-          </div>
-        </div>
-        {/* LHS End */}
-
-        {/* RHS Start */}
-        <div className="RHS container col-8 p-0 m-0 ps-3">
-          <div className="RHS_CHILD row d-flex gap-3 h-100">
-            {/* gap-3 */}
-            {data &&
-              data?.map((items, index) => (
+    <div>
+      <div>
+        <div className="LHS_RHS_BOTTOM text-color-2 bg-color1 container-fluid d-grid gap-3 px-5 py-3">
+          {/* First Row Start LHS and RHS */}
+          <div className="LHS-RHS row d-flex gap-0 flex-row justify-content-between">
+            {/* LHS Start */}
+            <div className="container LHS col-4">
+              <div className="TeamSales-LeaderBoard-WeeklySales d-grid gap-3">
+                {/* TeamsSales */}
                 <div
-                  key={items.id}
-                  className={`data-element bg-color2 rounded p-0 d-flex flex-column h-100 justify-content-center align-items-center ${
-                    index !== 0 ? "" : ""
-                  }`}
+                  className="TeamsSales row ps-2 pt-2 m-0 bg-color2 rounded"
+                  style={{ fontSize: "1.3vw" }}
                 >
+                  <p
+                    className="mb-0 fw-semibold pt-2"
+                    style={{ fontSize: "1.5vw" }}
+                  >
+                    Team Sales
+                  </p>
+
                   <div
-                    className="container row rounded d-flex justify-content-between flex-row flex-nowrap h-100 p-0 m-0"
+                    className="row d-flex flex-nowrap"
                     style={{ fontSize: "3vw" }}
                   >
-                    {/* Heading */}
-                    <div className="col-2 pt-2">
-                      <h1
-                        className="Heading m-0 p-0 fw-bold text-nowrap lh-sm"
-                        style={{ fontSize: "2.5vw" }}
-                      >
-                        {items.p_name}
-                      </h1>
-                      <header>
-                        <h1
-                          className="p-0 text-nowrap lh-sm"
-                          style={{ fontSize: "1.5vw" }}
-                        >
-                          {items.p_region}
-                        </h1>
-                      </header>
-                    </div>
-                    {/* Image */}
-                    <div className="col Image p-0 w-100">
-                      <div className="Image profileIcon h-100 ">
-                        <img
-                          className="img-fluid h-100 "
-                          src={items.p_img}
-                          alt="Profile Icon"
-                        />
-                      </div>
-                    </div>
-
-                    {/* This Year */}
-                    <div className="col This-year-container container m-0 p-2 w-25 h-100 d-flex flex-column justify-content-between">
-                      <div className="this-year-text-data">
-                        <span
-                          className="fw-bold align-baseline"
-                          style={{ fontSize: "2vw" }}
-                        >
+                    <div className="col-6 text-start">
+                      <div className="d-flex align-items-baseline">
+                        <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                           $
-                        </span>
-                        <span className="fw-bold align-baseline">
-                          {items.revenue_gen_this_year}
-                        </span>
-                        <span
-                          className="fw-bold align-baseline"
-                          style={{ fontSize: "2vw" }}
-                        >
+                        </p>
+                        <p className="fw-bold m-0">
+                          {TeamData[0].team_revenue_gen_this_year}
+                        </p>
+                        <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                           K
-                        </span>
+                        </p>
                       </div>
-                      <div
-                        className="this-year-text fw-semibold"
-                        style={{ fontSize: "1vw" }}
+
+                      <span
+                        className="fw-semibold d-flex text-nowrap"
+                        style={{ fontSize: "1.7vw" }}
                       >
                         this year
-                      </div>
+                      </span>
 
-                      {/* Individual Progress Bar */}
-                      <div className="percentage-bar-container d-flex flex-column">
-                        <div className="progress" style={{ height: "0.6vw" }}>
+                      {/*Team Sales Progress Bar */}
+                      <div className="team-sales-progress-bar-container">
+                        <div
+                          className="progress"
+                          style={{ height: "0.6vw", marginTop: "1.5vh" }}
+                        >
                           <div
                             className="progress-bar bg-info"
                             role="progressbar"
-                            style={{ width: `${items.target_percentage}%` }}
+                            style={{
+                              width: `${TeamData[0].team_target_percentage}%`,
+                            }}
                           ></div>
                         </div>
                         <div className="progress-bar-indicator d-flex justify-content-between">
@@ -346,13 +138,13 @@ const TeamsSales = () => {
                             className="achieved-percentage-text text-info fw-bold"
                             style={{ fontSize: "0.6vw" }}
                           >
-                            {items.target_percentage}%
+                            {TeamData[0].team_target_percentage}%
                           </div>
                           <div className="total-target-text d-flex align-items-baseline">
                             <span
                               className="fw-bold"
                               style={{
-                                fontSize: "0.25vw",
+                                fontSize: "0.4vw",
                                 marginRight: "0.1vw",
                               }}
                             >
@@ -362,87 +154,308 @@ const TeamsSales = () => {
                               className="align-baseline fw-bold"
                               style={{ fontSize: "0.6vw" }}
                             >
-                              {items.target}
+                              {TeamData[0].team_target}
                             </span>
                             <span
                               className="align-baseline fw-bold"
                               style={{
-                                fontSize: "0.25vw",
+                                fontSize: "0.4vw",
                                 marginLeft: "0.1vw",
                               }}
                             >
-                              K
+                              M
                             </span>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* This Week */}
-                    <div className="col-4 ThisWeek h-100 w-25 p-2 d-flex flex-column justify-content-between">
-                      <div className="this-week-text-data">
-                        <span
-                          className="fw-bold align-baseline"
-                          style={{ fontSize: "2vw" }}
-                        >
+                    <div className="col-6 text-start">
+                      <div className="ps-2 d-flex align-items-baseline">
+                        <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                           $
-                        </span>
-                        <span className="fw-bold align-baseline">
-                          {items.revenue_gen_this_week}
-                        </span>
-                        <span
-                          className="fw-bold align-baseline"
-                          style={{ fontSize: "2vw" }}
-                        >
+                        </p>
+                        <p className="fw-bold m-0">
+                          {TeamData[0].team_revenue_gen_this_week}
+                        </p>
+                        <p className="fw-bold m-0" style={{ fontSize: "2vw" }}>
                           K
-                        </span>
-                      </div>
-                      <div
-                        className="this-week-text fw-semibold"
-                        style={{ fontSize: "1vw" }}
-                      >
-                        this week
+                        </p>
                       </div>
 
-                      <div className="spark-line-chart-container d-flex justify-content-start">
-                        <Sparklines
-                          className="spark-line-chart-data"
-                          data={items.sparkline_data}
-                          limit={8}
+                      <span
+                        className="ps-2 fw-semibold d-flex text-nowrap"
+                        style={{ fontSize: "1.7vw" }}
+                      >
+                        this week
+                      </span>
+
+                      <div className="d-flex align-items-center m-0">
+                        <span
+                          className="color-3 d-flex align-items-start"
+                          style={{ fontSize: "2vw" }}
                         >
-                          <SparklinesLine color="#00D1FF" />
-                        </Sparklines>
+                          <IoMdArrowDropup />
+                        </span>
+                        <div className="color-3 d-flex align-items-baseline">
+                          <span
+                            className="fw-bold m-0"
+                            style={{ fontSize: "1vw" }}
+                          >
+                            $
+                          </span>
+                          <span
+                            className="fw-bold m-0"
+                            style={{ fontSize: "1.5vw" }}
+                          >
+                            {TeamData[0].team_revenue_gen_last_week}
+                          </span>
+                          <span
+                            className="fw-bold m-0"
+                            style={{ fontSize: "1vw", paddingRight: "1vw" }}
+                          >
+                            K
+                          </span>
+                        </div>
+                        <span
+                          className="text-nowrap fw-semibold nowrap m-0 d-flex align-items-start"
+                          style={{ fontSize: "1vw" }}
+                        >
+                          V last week
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
+                {/* TeamsSales */}
+
+                {/* LeaderBoardThisYear */}
+                <div
+                  className="LeaderBoardThisYear row ps-2 pt-2 m-0 bg-color2 rounded"
+                  style={{ fontSize: "1.3vw" }}
+                >
+                  <p className="mb-0 fw-semibold" style={{ fontSize: "1.5vw" }}>
+                    LeaderBoardThisYear
+                  </p>
+                  <ol className="list-unstyled mt-2 fw-normal">
+                    {data &&
+                      data.map((item) => (
+                        <div key={item.id}>
+                          <li
+                            className="small fw-bold p-0 my-1 d-flex justify-content-between"
+                            style={{ fontSize: "1vw" }}
+                          >
+                            {item.p_name}
+                            <div className="d-flex justify-content-end">{`$${item.revenue_gen_this_year}K`}</div>
+                          </li>
+                          <hr className="m-0" />
+                        </div>
+                      ))}
+                  </ol>
+                </div>
+                {/* LeaderBoardThisYear */}
+
+                {/* WeeklySalesChart */}
+                <div className=" WeeklySalesChart row p-0 m-0 bg-color2 rounded">
+                  <span
+                    className="pt-2 m-0 fw-semibold"
+                    style={{ fontSize: "1.5vw" }}
+                  >
+                    WeeklySales
+                  </span>
+                  <WeeklySalesChart data={TeamData} />
+                </div>
+                {/* WeeklySalesChart */}
+              </div>
+            </div>
+            {/* LHS End */}
+
+            {/* RHS Start */}
+            <div className="RHS container col-8 p-0 m-0 ps-3">
+              <div className="RHS_CHILD row d-flex gap-3 h-100">
+                {/* gap-3 */}
+                {data &&
+                  data?.map((items, index) => (
+                    <div
+                      key={items.id}
+                      className={`data-element bg-color2 rounded p-0 d-flex flex-column h-100 justify-content-center align-items-center ${
+                        index !== 0 ? "" : ""
+                      }`}
+                    >
+                      <div
+                        className="container row rounded d-flex justify-content-between flex-row flex-nowrap h-100 p-0 m-0"
+                        style={{ fontSize: "3vw" }}
+                      >
+                        {/* Heading */}
+                        <div className="col-2 pt-2">
+                          <h1
+                            className="Heading m-0 p-0 fw-bold text-nowrap lh-sm"
+                            style={{ fontSize: "2.5vw" }}
+                          >
+                            {items.p_name}
+                          </h1>
+                          <header>
+                            <h1
+                              className="p-0 text-nowrap lh-sm"
+                              style={{ fontSize: "1.5vw" }}
+                            >
+                              {items.p_region}
+                            </h1>
+                          </header>
+                        </div>
+                        {/* Image */}
+                        <div className="col Image p-0 w-100">
+                          <div className="Image profileIcon h-100 ">
+                            <img
+                              className="img-fluid h-100 "
+                              src={items.p_img}
+                              alt="Profile Icon"
+                            />
+                          </div>
+                        </div>
+
+                        {/* This Year */}
+                        <div className="col This-year-container container m-0 p-2 w-25 h-100 d-flex flex-column justify-content-between">
+                          <div className="this-year-text-data">
+                            <span
+                              className="fw-bold align-baseline"
+                              style={{ fontSize: "2vw" }}
+                            >
+                              $
+                            </span>
+                            <span className="fw-bold align-baseline">
+                              {items.revenue_gen_this_year}
+                            </span>
+                            <span
+                              className="fw-bold align-baseline"
+                              style={{ fontSize: "2vw" }}
+                            >
+                              K
+                            </span>
+                          </div>
+                          <div
+                            className="this-year-text fw-semibold"
+                            style={{ fontSize: "1vw" }}
+                          >
+                            this year
+                          </div>
+
+                          {/* Individual Progress Bar */}
+                          <div className="percentage-bar-container d-flex flex-column">
+                            <div
+                              className="progress"
+                              style={{ height: "0.6vw" }}
+                            >
+                              <div
+                                className="progress-bar bg-info"
+                                role="progressbar"
+                                style={{ width: `${items.target_percentage}%` }}
+                              ></div>
+                            </div>
+                            <div className="progress-bar-indicator d-flex justify-content-between">
+                              <div
+                                className="achieved-percentage-text text-info fw-bold"
+                                style={{ fontSize: "0.6vw" }}
+                              >
+                                {items.target_percentage}%
+                              </div>
+                              <div className="total-target-text d-flex align-items-baseline">
+                                <span
+                                  className="fw-bold"
+                                  style={{
+                                    fontSize: "0.25vw",
+                                    marginRight: "0.1vw",
+                                  }}
+                                >
+                                  $
+                                </span>
+                                <span
+                                  className="align-baseline fw-bold"
+                                  style={{ fontSize: "0.6vw" }}
+                                >
+                                  {items.target}
+                                </span>
+                                <span
+                                  className="align-baseline fw-bold"
+                                  style={{
+                                    fontSize: "0.25vw",
+                                    marginLeft: "0.1vw",
+                                  }}
+                                >
+                                  K
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* This Week */}
+                        <div className="col-4 ThisWeek h-100 w-25 p-2 d-flex flex-column justify-content-between">
+                          <div className="this-week-text-data">
+                            <span
+                              className="fw-bold align-baseline"
+                              style={{ fontSize: "2vw" }}
+                            >
+                              $
+                            </span>
+                            <span className="fw-bold align-baseline">
+                              {items.revenue_gen_this_week}
+                            </span>
+                            <span
+                              className="fw-bold align-baseline"
+                              style={{ fontSize: "2vw" }}
+                            >
+                              K
+                            </span>
+                          </div>
+                          <div
+                            className="this-week-text fw-semibold"
+                            style={{ fontSize: "1vw" }}
+                          >
+                            this week
+                          </div>
+
+                          <div className="spark-line-chart-container d-flex justify-content-start">
+                            <Sparklines
+                              className="spark-line-chart-data"
+                              data={items.sparkline_data}
+                              limit={8}
+                            >
+                              <SparklinesLine color="#00D1FF" />
+                            </Sparklines>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+            {/* RHS End */}
           </div>
-        </div>
-        {/* RHS End */}
-      </div>
-      {/* First Row End LHS and RHS */}
+          {/* First Row End LHS and RHS */}
 
-      {/* Second Start End LHS and RHS */}
-      {/* Bottom Start */}
-      <div className="Bottom d-flex justify-content-between align-items-center">
-        <div className="">
-          <img
-            className="me-3"
-            style={{ maxWidth: "6%", maxHeight: "10%" }}
-            src="https://play-lh.googleusercontent.com/g5WIaqQ00BCBnBsktGwbBISJDOuDLrn7TEupVk_5gDznboxSvUHs-oxi9zvqXAvdLA"
-            alt="icon"
-          ></img>
-          <span className="Bottom-text">Sales team leader board</span>
-          <span className="Bottom-text-1 ps-3 text-end ">
-            Powered by Lystloc
-          </span>
-        </div>
+          {/* Second Start End LHS and RHS */}
+          {/* Bottom Start */}
+          <div className="Bottom d-flex justify-content-between align-items-center">
+            <div className="">
+              <img
+                className="me-3"
+                style={{ maxWidth: "6%", maxHeight: "10%" }}
+                src="https://play-lh.googleusercontent.com/g5WIaqQ00BCBnBsktGwbBISJDOuDLrn7TEupVk_5gDznboxSvUHs-oxi9zvqXAvdLA"
+                alt="icon"
+              ></img>
+              <span className="Bottom-text">Sales team leader board</span>
+              <span className="Bottom-text-1 ps-3 text-end ">
+                Powered by Lystloc
+              </span>
+            </div>
 
-        <div className="Bottom-text d-flex justify-content-end p-0 m-0">{`${hours}:${minutes}`}</div>
+            <div className="Bottom-text d-flex justify-content-end p-0 m-0">{`${hours}:${minutes}`}</div>
+          </div>
+          {/* Bottom Start */}
+          {/* Second Row End LHS and RHS */}
+        </div>
       </div>
-      {/* Bottom Start */}
-      {/* Second Row End LHS and RHS */}
     </div>
   );
 };

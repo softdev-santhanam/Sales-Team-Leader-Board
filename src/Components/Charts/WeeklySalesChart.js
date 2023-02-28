@@ -77,7 +77,7 @@ const WeeklySalesChart = (props) => {
       className="WeeklySalesChart d-flex  ps-3"
       style={{
         height: "100%",
-        width: "90%",
+        width: "100%",
         position: "relative",
         top: "-20px",
         overflow: "visible",
