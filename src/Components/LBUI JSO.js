@@ -1,4 +1,4 @@
-[
+const data = [
   {
     p_name: "Dale",
     p_region: "North East",
